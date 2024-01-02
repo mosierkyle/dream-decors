@@ -1,2 +1,5 @@
 # online-store
-An online shopping store
+
+An online furniture store called Dream Decors. Made with React.
+
+Live Demo:
