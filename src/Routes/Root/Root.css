@@ -1,5 +1,5 @@
 :root {
-  --bg-color: rgba(0, 0, 0, 0.4);
+  --bg-color: rgba(0, 0, 0, 0.5);
   --text-color: rgb(255, 255, 255);
   --heading-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -7,21 +7,26 @@
 }
 
 .content {
-  width: 100vw;
+  height: 100vh;
   display: grid;
-  grid-template-rows: 75px 90vh 100px;
+  grid-template-rows: 100vh 100px;
+  width: 100vw;
 }
 
 .header {
-  grid-row: 1 / 2;
   display: flex;
   background-color: var(--bg-color);
   color: var(--text-color);
   justify-content: space-between;
-  font-weight: 600;
-  font-size: 24px;
+  font-weight: 500;
+  font-size: 36px;
   padding: 18px 24px;
   font-family: var(--heading-font);
+  z-index: 5;
+  height: 60px;
+  position: fixed;
+  letter-spacing: 1px;
+  width: 97%;
 }
 
 .logo {
@@ -44,6 +49,8 @@
 
 .nav-links li {
   list-style-type: none;
+  font-size: 24px;
+  font-weight: 550;
 }
 
 .nav-link li Link {
@@ -53,16 +60,31 @@
 
 .fa-solid,
 .fas {
-  color: white;
-  transform: scale(1);
+  color: var(--heading-font-color);
 }
 
 .page {
-  grid-row: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.homepage-link {
+  background-color: rgb(255, 255, 255);
+  z-index: 4;
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px 18px;
+  border-radius: 5px;
+  transition: 0.5s ease;
+}
+
+.homepage-link:hover {
+  transform: scale(1.1);
 }
 
 .footer {
-  grid-row: 3 / 4;
+  grid-row: 2 / 3;
   background-color: var(--bg-color);
   color: var(--text-color);
 }

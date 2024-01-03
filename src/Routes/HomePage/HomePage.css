@@ -1,0 +1,31 @@
+.homepage-content {
+  position: relative;
+  background-image: url('/Users/kylemosier/repos/online-store/src/Assets/background/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the background image */
+  font-size: 30px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.homepage-header {
+  font-weight: 300;
+  font-size: 50px;
+  color: rgb(255, 255, 255);
+  z-index: 999;
+}

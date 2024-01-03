@@ -6,13 +6,6 @@ import viva from '../assets/living/viva.jpg';
 
 const livingProducts = [
   {
-    id: 'aulani',
-    name: 'AULANI series',
-    image: aulani,
-    price: 2599000,
-    category: 'living',
-  },
-  {
     id: 'avante',
     name: 'AVANTE series',
     image: avante,

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import allProducts from '../../Data/allProducts';
 
 const useImageURL = () => {
   const [data, setData] = useState(null);
@@ -9,16 +10,13 @@ const useImageURL = () => {
     const getResponse = async () => {
       try {
         //furniture
-        let response = await fetch(
-          'https://dummyjson.com/products/category/furniture'
-        );
-        if (!response.ok) {
+        let response = allProducts;
+        if (!response) {
           throw new Error(
             `This is an HTTP error: The status is ${response.status}`
           );
         }
-        let responseJson = await response.json();
-        console.log(responseJson);
+        console.log(response);
         //home-decor
         // let response1 = await fetch(
         //   'https://dummyjson.com/products/category/home-decoration'
@@ -33,7 +31,7 @@ const useImageURL = () => {
         // //combine the two
         // let products = { ...response, ...response1 };
         // console.log(products);
-        setData(responseJson);
+        setData(response);
         setError(null);
       } catch (error) {
         setError(error);
@@ -61,10 +59,10 @@ const ShopPage = () => {
       )}
       <ul>
         {data &&
-          data.products.map(({ id, title, images }) => (
+          data.map(({ id, name }) => (
             <li key={id}>
-              <h3>{title}</h3>
-              <img src={images[0]} alt="thumbnail" />
+              <h3>{name}</h3>
+              {/* <img src={image} alt="thumbnail" /> */}
             </li>
           ))}
       </ul>

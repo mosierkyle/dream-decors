@@ -19,8 +19,18 @@ const Root = () => {
         </div>
         <ul className="nav-links">
           <li>
-            <Link className="link" to="shop">
-              Shop
+            <Link className="link" to="living">
+              LIVING
+            </Link>
+          </li>
+          <li>
+            <Link className="link" to="dining">
+              DINING
+            </Link>
+          </li>
+          <li>
+            <Link className="link" to="bedroom">
+              BEDROOM
             </Link>
           </li>
           <li>
