@@ -1,0 +1,68 @@
+:root {
+  --bg-color: rgba(0, 0, 0, 0.4);
+  --text-color: rgb(255, 255, 255);
+  --heading-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --heading-font-color: rgb(255, 255, 255);
+}
+
+.content {
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 75px 90vh 100px;
+}
+
+.header {
+  grid-row: 1 / 2;
+  display: flex;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 24px;
+  padding: 18px 24px;
+  font-family: var(--heading-font);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--heading-font-color);
+}
+
+.nav-links {
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  gap: 38px;
+  align-items: center;
+}
+
+.nav-links li {
+  list-style-type: none;
+}
+
+.nav-link li Link {
+  text-decoration: none;
+  color: var(--heading-font-color);
+}
+
+.fa-solid,
+.fas {
+  color: white;
+  transform: scale(1);
+}
+
+.page {
+  grid-row: 2 / 3;
+}
+
+.footer {
+  grid-row: 3 / 4;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
