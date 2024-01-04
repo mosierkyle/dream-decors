@@ -1,16 +1,8 @@
-import blaise from '../assets/bedroom/blaise.jpg';
 import kiki from '../assets/bedroom/kiki.jpg';
 import mentor from '../assets/bedroom/mentor.jpg';
 import virtual from '../assets/bedroom/virtual.jpg';
 
 const bedroomProducts = [
-  {
-    id: 'blaise',
-    name: 'BLAISE series',
-    image: blaise,
-    price: 32990.0,
-    category: 'bedroom',
-  },
   {
     id: 'kiki',
     name: 'KIKI series',

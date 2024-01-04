@@ -10,8 +10,6 @@
   overflow: hidden;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  object-fit: cover;
-  object-position: center;
 }
 
 .card-image {
