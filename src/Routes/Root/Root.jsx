@@ -43,10 +43,10 @@ const Root = () => {
           </li>
         </ul>
       </div>
-      <div className="footer">This is the footer Dream Decor</div>
       <div className="page">
         <Outlet />
       </div>
+      <div className="footer">This is the footer Dream Decor</div>
     </div>
   );
 };

@@ -46,7 +46,7 @@ const Dining = () => {
       <ul>
         {data &&
           data.map(({ id, name }) => (
-            <li key={id}>
+            <li className="card" key={id}>
               <h3>{name}</h3>
             </li>
           ))}

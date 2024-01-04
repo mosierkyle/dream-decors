@@ -12,6 +12,7 @@
   align-items: center;
   flex-direction: column;
   gap: 24px;
+  height: 100vh;
 }
 
 .overlay {
@@ -28,4 +29,42 @@
   font-size: 50px;
   color: rgb(255, 255, 255);
   z-index: 999;
+}
+
+.homepage-link {
+  background-color: rgb(255, 255, 255);
+  z-index: 4;
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px 24px;
+  border-radius: 5px;
+  transition: 0.5s ease;
+}
+
+.homepage-link:hover {
+  transform: scale(1.1);
+}
+
+.homepage-featured {
+  height: fit-content;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.homepage-featured-header {
+  font-weight: 700;
+  font-size: 36px;
+  color: rgb(0, 0, 0);
+}
+
+.homepage-featured-content {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  list-style: none;
 }

@@ -1,0 +1,27 @@
+.card-div {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image-div {
+  height: 228px;
+  width: 228px;
+  overflow: hidden;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-image {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.card-info {
+  height: 88px;
+  width: 228px;
+}
