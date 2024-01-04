@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import diningProducts from '../../Data/diningProducts';
+import Card from '../../Components/Card';
 
 const getData = () => {
   const [data, setData] = useState(null);
@@ -37,20 +38,20 @@ const Dining = () => {
   const { data, error, loading } = getData();
 
   return (
-    <div className="App">
-      <h1>DINING</h1>
+    <div className="shop-content">
+      <p className="shop-heading">DINING ROOM FURNITURE</p>
       {loading && <div>A moment please...</div>}
       {error && (
         <div>{`There is a problem fetching the dinning data - ${error}`}</div>
       )}
-      <ul>
+      <div className="shop-cards">
         {data &&
-          data.map(({ id, name }) => (
-            <li className="card" key={id}>
-              <h3>{name}</h3>
-            </li>
-          ))}
-      </ul>
+          data.map(({ name, id, image, price }) => {
+            return (
+              <Card key={id} name={name} image={image} price={price}></Card>
+            );
+          })}
+      </div>
     </div>
   );
 };

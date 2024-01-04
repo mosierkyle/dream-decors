@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import livingProducts from '../../Data/livingProducts';
+import Card from '../../Components/Card';
+import './Living.css';
 
 const getData = () => {
   const [data, setData] = useState(null);
@@ -37,20 +39,20 @@ const Living = () => {
   const { data, error, loading } = getData();
 
   return (
-    <div className="App">
-      <h1>LIVING</h1>
+    <div className="shop-content">
+      <p className="shop-heading">LIVING ROOM FURNITURE</p>
       {loading && <div>A moment please...</div>}
       {error && (
-        <div>{`There is a problem fetching the living data - ${error}`}</div>
+        <div>{`There is a problem fetching the dinning data - ${error}`}</div>
       )}
-      <ul>
+      <div className="shop-cards">
         {data &&
-          data.map(({ id, name }) => (
-            <li key={id}>
-              <h3>{name}</h3>
-            </li>
-          ))}
-      </ul>
+          data.map(({ name, id, image, price }) => {
+            return (
+              <Card key={id} name={name} image={image} price={price}></Card>
+            );
+          })}
+      </div>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import './Card.css';
 
-const Card = ({ name, id, price, image }) => {
+const Card = ({ name, price, image }) => {
   return (
-    <div className="card-div" key={id}>
+    <div className="card-div">
       <div className="card-image-div">
         <img className="card-image" src={image} alt={name} />
       </div>
