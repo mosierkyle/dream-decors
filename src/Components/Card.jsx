@@ -8,7 +8,7 @@ const Card = ({ name, id, price, image }) => {
       </div>
       <div className="card-info">
         <p className="card-name">{name}</p>
-        <p className="card-price">{price}</p>
+        <p className="card-price">${price}.99</p>
       </div>
     </div>
   );

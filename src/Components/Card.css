@@ -2,6 +2,11 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-div:hover {
+  cursor: pointer;
 }
 
 .card-image-div {
@@ -17,9 +22,27 @@
   object-position: center;
   height: 100%;
   width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.card-image:hover {
+  transform: scale(1.1);
 }
 
 .card-info {
-  height: 88px;
-  width: 228px;
+  height: 56px;
+  width: 196px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: rgb(255, 255, 255);
+  padding: 16px;
+}
+
+.card-name {
+  font-weight: 600;
+}
+
+.card-price {
+  margin-top: 5px;
+  color: green;
 }

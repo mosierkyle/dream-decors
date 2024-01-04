@@ -9,7 +9,7 @@
 .content {
   /* display: grid;
   grid-template-rows: 100vh 100px; */
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -27,7 +27,10 @@
   height: 60px;
   position: fixed;
   letter-spacing: 1px;
-  width: 97%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .logo {
@@ -46,6 +49,7 @@
   flex-direction: row;
   gap: 38px;
   align-items: center;
+  margin-right: 50px;
 }
 
 .nav-links li {

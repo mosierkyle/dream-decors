@@ -49,11 +49,12 @@
 
 .homepage-featured {
   height: fit-content;
-  padding: 40px;
+  padding: 40px 40px 80px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 .homepage-featured-header {
@@ -65,6 +66,6 @@
 .homepage-featured-content {
   display: flex;
   flex-direction: row;
-  gap: 24px;
+  gap: 60px;
   list-style: none;
 }

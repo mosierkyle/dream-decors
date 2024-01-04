@@ -34,7 +34,9 @@ const Root = () => {
             </Link>
           </li>
           <li>
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <Link>
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </Link>
           </li>
           <li>
             <Link className="link" to="cart">
