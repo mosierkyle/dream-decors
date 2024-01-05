@@ -3,7 +3,7 @@ import Root from './Routes/Root/Root';
 import ErrorPage from './Routes/ErrorPage/ErrorPage';
 import HomePage from './Routes/HomePage/HomePage';
 import ShopPage from './Routes/ShopPages/ShopPage';
-import CartPage from './Routes/CartPage/CartPage';
+import CartPage from './Routes/CartPage/Cart';
 import Living from './Routes/ShopPages/Living/Living';
 import Dining from './Routes/ShopPages/Dining/Dining';
 import Bedroom from './Routes/ShopPages/Bedroom/Bedroom';
@@ -18,7 +18,6 @@ const Router = () => {
       children: [
         { index: true, element: <HomePage /> },
         { path: 'shop', element: <ShopPage /> },
-        { path: 'cart', element: <CartPage /> },
         { path: 'living', element: <Living /> },
         { path: 'dining', element: <Dining /> },
         { path: 'bedroom', element: <Bedroom /> },

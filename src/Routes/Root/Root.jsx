@@ -1,8 +1,13 @@
 import { Outlet, Link, useLoaderData, Form } from 'react-router-dom';
 import './Root.css';
 import { Helmet } from 'react-helmet';
+import Cart from '../CartPage/Cart';
+import { useState } from 'react';
 
 const Root = () => {
+  const [showCart, setShowCart] = useState(false);
+  const [cart, setCart] = useState([]);
+
   return (
     <div className="content">
       <Helmet>
@@ -39,9 +44,15 @@ const Root = () => {
             </Link>
           </li>
           <li>
-            <Link className="link" to="cart">
-              <i className="fa-solid fa-cart-shopping"></i>
-            </Link>
+            {showCart ? (
+              <i className="fa-solid fa-cart-shopping nav-cart"></i>
+            ) : null}
+            <Cart
+              cart={cart}
+              setCart={setCart}
+              showCart={showCart}
+              setShowCart={setShowCart}
+            ></Cart>
           </li>
         </ul>
       </div>
