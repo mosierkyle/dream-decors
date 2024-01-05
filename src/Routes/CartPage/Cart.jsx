@@ -20,7 +20,7 @@ const Cart = ({ setShowCart, addToCart, cart, removeFromCart, showCart }) => {
         <div className="cart-content">
           <div className="cart-header">
             <h3 className="cart-title">
-              CART <span className="cart-count">(0)</span>
+              CART <span className="cart-count">({cart.length})</span>
             </h3>
             <i onClick={onCartClick} className="fa-solid fa-x cart-x"></i>
           </div>
@@ -30,7 +30,9 @@ const Cart = ({ setShowCart, addToCart, cart, removeFromCart, showCart }) => {
               <p>Subtotal</p>
               <p>$</p>
             </div>
-            <button className="cart-continue-btn">CONTINUE SHOPPING</button>
+            <button onClick={onCartClick} className="cart-continue-btn">
+              CONTINUE SHOPPING
+            </button>
             <button className="cart-checkout-btn">CHECKOUT NOW</button>
           </div>
         </div>

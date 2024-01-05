@@ -4,9 +4,8 @@ import { Helmet } from 'react-helmet';
 import Cart from '../CartPage/Cart';
 import { useState } from 'react';
 
-const Root = () => {
+const Root = ({ cart, setCart }) => {
   const [showCart, setShowCart] = useState(false);
-  const [cart, setCart] = useState([]);
 
   return (
     <div className="content">
