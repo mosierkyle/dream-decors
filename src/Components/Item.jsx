@@ -1,7 +1,7 @@
 import './Item.css';
 import { Link } from 'react-router-dom';
 
-const Item = ({ name, image, price, category, back }) => {
+const Item = ({ name, image, price, category }) => {
   return (
     <div className="item-content">
       <div className="item-img-div">
@@ -17,7 +17,7 @@ const Item = ({ name, image, price, category, back }) => {
         </p>
         <p className="item-price">${price}.99</p>
         <div className="item-purchase"></div>
-        <Link to={back}>Go Back</Link>
+        <Link to={`/${category}`}>Go Back</Link>
       </div>
     </div>
   );

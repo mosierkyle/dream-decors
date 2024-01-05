@@ -8,14 +8,32 @@ import Living from './Routes/ShopPages/Living/Living';
 import Dining from './Routes/ShopPages/Dining/Dining';
 import Bedroom from './Routes/ShopPages/Bedroom/Bedroom';
 import ItemPage from './Routes/CartPage/ItemPage';
+import getData from './Components/getData';
 
 const Router = () => {
   const [cart, setCart] = useState([]);
 
+  const addToCart = (id) => {
+    let newItem = getData(id);
+    setCart([...setCart, newItem]);
+  };
+
+  const removeFromCart = () => {
+    let removeItem = getData(id);
+    const index = array.indexOf(removeItem);
+    setCart(cart.splice(index, 1));
+  };
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Root cart={cart} setCart={setCart} />,
+      element: (
+        <Root
+          cart={cart}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+        />
+      ),
       errorElement: <ErrorPage />,
       children: [
         { index: true, element: <HomePage /> },
@@ -25,7 +43,13 @@ const Router = () => {
         { path: 'bedroom', element: <Bedroom /> },
         {
           path: '/item/:id',
-          element: <ItemPage cart={cart} setCart={setCart} />,
+          element: (
+            <ItemPage
+              cart={cart}
+              addToCart={addToCart}
+              removeFromCart={removeFromCart}
+            />
+          ),
         },
       ],
     },
