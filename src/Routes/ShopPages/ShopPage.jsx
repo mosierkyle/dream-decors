@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import allProducts from '../../Data/allProducts';
+import Card from '../../Components/Card';
 
-const useImageURL = () => {
+const getData = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -16,21 +17,6 @@ const useImageURL = () => {
             `This is an HTTP error: The status is ${response.status}`
           );
         }
-        console.log(response);
-        //home-decor
-        // let response1 = await fetch(
-        //   'https://dummyjson.com/products/category/home-decoration'
-        // );
-        // if (!response1.ok) {
-        //   throw new Error(
-        //     `This is an HTTP error: The status is ${response1.status}`
-        //   );
-        // }
-        // let response1Json = await response1.json();
-        // console.log(response1Json);
-        // //combine the two
-        // let products = { ...response, ...response1 };
-        // console.log(products);
         setData(response);
         setError(null);
       } catch (error) {
@@ -48,24 +34,29 @@ const useImageURL = () => {
 };
 
 const ShopPage = () => {
-  const { data, error, loading } = useImageURL();
+  const { data, error, loading } = getData();
 
   return (
-    <div className="App">
-      <h1>API Posts</h1>
+    <div className="shop-content">
+      <p className="shop-heading">SHOP ALL FURNITURE</p>
       {loading && <div>A moment please...</div>}
       {error && (
-        <div>{`There is a problem fetching the post data - ${error}`}</div>
+        <div>{`There is a problem fetching the furniture data - ${error}`}</div>
       )}
-      <ul>
+      <div className="shop-cards">
         {data &&
-          data.map(({ id, name }) => (
-            <li key={id}>
-              <h3>{name}</h3>
-              {/* <img src={image} alt="thumbnail" /> */}
-            </li>
-          ))}
-      </ul>
+          data.map(({ name, id, image, price }) => {
+            return (
+              <Card
+                key={id}
+                id={id}
+                name={name}
+                image={image}
+                price={price}
+              ></Card>
+            );
+          })}
+      </div>
     </div>
   );
 };

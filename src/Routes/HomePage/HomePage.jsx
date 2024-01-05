@@ -55,7 +55,13 @@ const HomePage = () => {
           {data &&
             data.map(({ name, id, image, price }) => {
               return (
-                <Card key={id} name={name} image={image} price={price}></Card>
+                <Card
+                  key={id}
+                  id={id}
+                  name={name}
+                  image={image}
+                  price={price}
+                ></Card>
               );
             })}
         </div>
