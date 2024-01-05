@@ -15,6 +15,8 @@ const ItemPage = ({ cart, addToCart, removeFromCart }) => {
         image={data.image}
         price={data.price}
         category={data.category}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
       ></Item>
     </div>
   );

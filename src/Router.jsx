@@ -13,9 +13,11 @@ import getData from './Components/getData';
 const Router = () => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (id) => {
+  const addToCart = (id, num) => {
     let newItem = getData(id);
-    setCart([...setCart, newItem]);
+    for (let i = 0; i < num; i++) {
+      setCart([...setCart, newItem]);
+    }
   };
 
   const removeFromCart = () => {
