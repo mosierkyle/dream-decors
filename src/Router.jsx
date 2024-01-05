@@ -13,17 +13,32 @@ import getData from './Components/getData';
 const Router = () => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (id, num) => {
+  const addToCart = (id, q) => {
+    let inCart = cart.find((item) => item.id === id);
     let newItem = getData(id);
-    for (let i = 0; i < num; i++) {
-      setCart([...setCart, newItem]);
+    if (!inCart) {
+      setCart([...cart, { ...newItem, quantity: q }]);
+    } else {
+      let newQ = q + inCart.quantity;
+      let index = cart.indexOf(inCart);
+      setCart((prevCart) => {
+        const newCart = [...prevCart];
+        newCart.splice(index, 1, { ...newItem, quantity: newQ });
+        return newCart;
+      });
     }
+    return;
   };
 
-  const removeFromCart = () => {
+  const removeFromCart = (id) => {
     let removeItem = getData(id);
-    const index = array.indexOf(removeItem);
-    setCart(cart.splice(index, 1));
+    const index = cart.indexOf(removeItem);
+    setCart((prevCart) => {
+      const newCart = [...prevCart];
+      newCart.splice(index, 1);
+      return newCart;
+    });
+    console.log(cart);
   };
 
   const router = createBrowserRouter([
@@ -45,13 +60,7 @@ const Router = () => {
         { path: 'bedroom', element: <Bedroom /> },
         {
           path: '/item/:id',
-          element: (
-            <ItemPage
-              cart={cart}
-              addToCart={addToCart}
-              removeFromCart={removeFromCart}
-            />
-          ),
+          element: <ItemPage cart={cart} addToCart={addToCart} />,
         },
       ],
     },

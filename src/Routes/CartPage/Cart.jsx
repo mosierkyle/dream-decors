@@ -4,6 +4,7 @@ import './Cart.css';
 const Cart = ({ setShowCart, addToCart, cart, removeFromCart, showCart }) => {
   const onCartClick = () => {
     showCart ? setShowCart(false) : setShowCart(true);
+    console.log(cart);
     return;
   };
 

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Item.css';
 import { Link } from 'react-router-dom';
 
-const Item = ({ name, image, price, category, addToCart, removeFromCart }) => {
+const Item = ({ name, image, price, category, addToCart, id }) => {
   const [quantity, setQuantity] = useState(1);
 
   function quantityChange(e) {
@@ -47,7 +47,14 @@ const Item = ({ name, image, price, category, addToCart, removeFromCart }) => {
             <input type="text" value={quantity} onChange={quantityChange} />
             <button onClick={quanityIncrease}>+</button>
           </div>
-          <button className="item-add-to-cart">ADD TO CART</button>
+          <button
+            className="item-add-to-cart"
+            onClick={() => {
+              addToCart(id, quantity);
+            }}
+          >
+            ADD TO CART
+          </button>
         </div>
       </div>
     </div>

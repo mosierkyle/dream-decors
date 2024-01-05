@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Item from '../../Components/Item';
 import getData from '../../Components/getData';
 
-const ItemPage = ({ cart, addToCart, removeFromCart }) => {
+const ItemPage = ({ cart, addToCart }) => {
   const { id } = useParams();
   const data = getData(id);
 
@@ -16,7 +16,7 @@ const ItemPage = ({ cart, addToCart, removeFromCart }) => {
         price={data.price}
         category={data.category}
         addToCart={addToCart}
-        removeFromCart={removeFromCart}
+        id={data.id}
       ></Item>
     </div>
   );
