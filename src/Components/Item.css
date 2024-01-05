@@ -1,0 +1,30 @@
+.item-content {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  margin-top: 96px;
+  width: 100%;
+  justify-content: center;
+  gap: 50px;
+  padding: 50px 100px;
+  overflow: hidden;
+}
+
+.item-img-div {
+  height: 500px;
+  width: 500px;
+}
+
+.item-img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+  overflow: hidden;
+  height: 500px;
+  width: 500px;
+}
+
+.item-info {
+  display: flex;
+  flex-wrap: wrap;
+}

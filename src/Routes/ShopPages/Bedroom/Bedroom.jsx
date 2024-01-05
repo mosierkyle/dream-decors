@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import bedroomProducts from '../../Data/bedroomProducts';
-import Card from '../../Components/Card';
+import bedroomProducts from '../../../Data/bedroomProducts';
+import Card from '../../../Components/Card';
 
 const getData = () => {
   const [data, setData] = useState(null);
@@ -48,7 +48,13 @@ const Bedroom = () => {
         {data &&
           data.map(({ name, id, image, price }) => {
             return (
-              <Card key={id} name={name} image={image} price={price}></Card>
+              <Card
+                key={id}
+                id={id}
+                name={name}
+                image={image}
+                price={price}
+              ></Card>
             );
           })}
       </div>

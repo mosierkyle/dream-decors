@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import livingProducts from '../../Data/livingProducts';
-import Card from '../../Components/Card';
-import './Living.css';
+import diningProducts from '../../../Data/diningProducts';
+import Card from '../../../Components/Card';
 
 const getData = () => {
   const [data, setData] = useState(null);
@@ -12,7 +11,7 @@ const getData = () => {
     const getResponse = async () => {
       try {
         //furniture
-        let response = livingProducts;
+        let response = diningProducts;
         if (!response) {
           throw new Error(
             `This is an HTTP error: The status is ${response.status}`
@@ -35,12 +34,12 @@ const getData = () => {
   return { data, error, loading };
 };
 
-const Living = () => {
+const Dining = () => {
   const { data, error, loading } = getData();
 
   return (
     <div className="shop-content">
-      <p className="shop-heading">LIVING ROOM FURNITURE</p>
+      <p className="shop-heading">DINING ROOM FURNITURE</p>
       {loading && <div>A moment please...</div>}
       {error && (
         <div>{`There is a problem fetching the dinning data - ${error}`}</div>
@@ -49,7 +48,13 @@ const Living = () => {
         {data &&
           data.map(({ name, id, image, price }) => {
             return (
-              <Card key={id} name={name} image={image} price={price}></Card>
+              <Card
+                key={id}
+                id={id}
+                name={name}
+                image={image}
+                price={price}
+              ></Card>
             );
           })}
       </div>
@@ -57,4 +62,4 @@ const Living = () => {
   );
 };
 
-export default Living;
+export default Dining;

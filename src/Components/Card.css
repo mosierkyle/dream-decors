@@ -40,8 +40,13 @@
   padding: 16px;
 }
 
+.card-link {
+  text-decoration: none;
+}
+
 .card-name {
   font-weight: 600;
+  color: rgb(0, 0, 0);
 }
 
 .card-price {
