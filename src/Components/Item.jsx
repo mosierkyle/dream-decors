@@ -39,13 +39,20 @@ const Item = ({ name, image, price, category, addToCart, id }) => {
           tellus.
         </p>
         <p className="item-price">${price}.99</p>
-        <div className="item-purchase"></div>
-        <Link to={`/${category}`}>Go Back</Link>
         <div className="item-cart">
           <div className="item-quantity">
-            <button onClick={quanityDecrease}>-</button>
-            <input type="text" value={quantity} onChange={quantityChange} />
-            <button onClick={quanityIncrease}>+</button>
+            <button className="q-btn" onClick={quanityDecrease}>
+              -
+            </button>
+            <input
+              className="q-input"
+              type="text"
+              value={quantity}
+              onChange={quantityChange}
+            />
+            <button className="q-btn" onClick={quanityIncrease}>
+              +
+            </button>
           </div>
           <button
             className="item-add-to-cart"
@@ -55,6 +62,9 @@ const Item = ({ name, image, price, category, addToCart, id }) => {
           >
             ADD TO CART
           </button>
+          <Link to={`/${category}`} className="item-continue-btn">
+            CONTINUE SHOPPING
+          </Link>
         </div>
       </div>
     </div>
