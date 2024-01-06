@@ -58,6 +58,8 @@ const Item = ({ name, image, price, category, addToCart, id }) => {
             className="item-add-to-cart"
             onClick={() => {
               addToCart(id, quantity);
+              setQuantity(1);
+              alert('Item Successfully added to cart');
             }}
           >
             ADD TO CART
