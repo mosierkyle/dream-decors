@@ -2,7 +2,14 @@ import { Helmet } from 'react-helmet';
 import './Cart.css';
 import CartItem from '../../Components/CartItem';
 
-const Cart = ({ setShowCart, addToCart, cart, removeFromCart, showCart }) => {
+const Cart = ({
+  setShowCart,
+  addToCart,
+  cart,
+  removeFromCart,
+  showCart,
+  changeItemQuantity,
+}) => {
   const onCartClick = () => {
     showCart ? setShowCart(false) : setShowCart(true);
     console.log(cart);
@@ -38,8 +45,8 @@ const Cart = ({ setShowCart, addToCart, cart, removeFromCart, showCart }) => {
                       category={item.category}
                       quantity={item.quantity}
                       removeFromCart={removeFromCart}
-                      addToCart={addToCart}
-                      id={cart.id}
+                      id={item.id}
+                      changeItemQuantity={changeItemQuantity}
                     ></CartItem>
                   </div>
                 );

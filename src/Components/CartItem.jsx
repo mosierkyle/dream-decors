@@ -8,6 +8,7 @@ const CartItem = ({
   category,
   quantity,
   removeFromCart,
+  changeItemQuantity,
   id,
 }) => {
   const [q, setQ] = useState(quantity);
@@ -18,6 +19,7 @@ const CartItem = ({
       removeFromCart(id);
     }
     setQ(e.target.value);
+    changeItemQuantity(id, e.target.value);
   }
 
   function quanityIncrease() {
@@ -25,6 +27,7 @@ const CartItem = ({
     let newP = newQ * price;
     setP(newP);
     setQ(newQ);
+    changeItemQuantity(id, newQ);
   }
 
   function quanityDecrease() {
@@ -35,6 +38,7 @@ const CartItem = ({
     let newP = newQ * price;
     setP(newP);
     setQ(newQ);
+    changeItemQuantity(id, newQ);
   }
   return (
     <>

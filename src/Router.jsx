@@ -41,6 +41,16 @@ const Router = () => {
     console.log(cart);
   };
 
+  const changeItemQuantity = (id, q) => {
+    let inCart = cart.find((item) => item.id === id);
+    let index = cart.indexOf(inCart);
+    setCart((prevCart) => {
+      const newCart = [...prevCart];
+      newCart.splice(index, 1, { ...inCart, quantity: q });
+      return newCart;
+    });
+  };
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -49,6 +59,7 @@ const Router = () => {
           cart={cart}
           addToCart={addToCart}
           removeFromCart={removeFromCart}
+          changeItemQuantity={changeItemQuantity}
         />
       ),
       errorElement: <ErrorPage />,

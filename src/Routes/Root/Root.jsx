@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import Cart from '../CartPage/Cart';
 import { useState } from 'react';
 
-const Root = ({ cart, addToCart, removeFromCart }) => {
+const Root = ({ cart, addToCart, removeFromCart, changeItemQuantity }) => {
   const [showCart, setShowCart] = useState(false);
 
   return (
@@ -50,6 +50,9 @@ const Root = ({ cart, addToCart, removeFromCart }) => {
               cart={cart}
               showCart={showCart}
               setShowCart={setShowCart}
+              removeFromCart={removeFromCart}
+              addToCart={addToCart}
+              changeItemQuantity={changeItemQuantity}
             ></Cart>
           </li>
         </ul>
