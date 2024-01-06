@@ -55,7 +55,9 @@
 }
 
 .cart-items {
-  height: 70%;
+  height: 60%;
+  overflow: scroll;
+  padding: 2rem 0;
 }
 
 .cart-checkout {
@@ -100,4 +102,16 @@
   border: none;
   font-weight: 600;
   border-radius: 5px;
+}
+
+.cart-item {
+  height: fit-content;
+  color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 1rem 0;
 }

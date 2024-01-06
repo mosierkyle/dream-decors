@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
 import './Cart.css';
+import CartItem from '../../Components/CartItem';
 
 const Cart = ({ setShowCart, addToCart, cart, removeFromCart, showCart }) => {
   const onCartClick = () => {
@@ -25,7 +26,25 @@ const Cart = ({ setShowCart, addToCart, cart, removeFromCart, showCart }) => {
             </h3>
             <i onClick={onCartClick} className="fa-solid fa-x cart-x"></i>
           </div>
-          <div className="cart-items"></div>
+          <div className="cart-items">
+            {cart &&
+              cart.map((item) => {
+                return (
+                  <div className="cart-item" key={item.id}>
+                    <CartItem
+                      name={item.name}
+                      image={item.image}
+                      price={item.price}
+                      category={item.category}
+                      quantity={item.quantity}
+                      removeFromCart={removeFromCart}
+                      addToCart={addToCart}
+                      id={cart.id}
+                    ></CartItem>
+                  </div>
+                );
+              })}
+          </div>
           <div className="cart-checkout">
             <div className="cart-subtotal">
               <p>Subtotal</p>
