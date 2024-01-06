@@ -17,6 +17,7 @@ const CartItem = ({
   function quantityChange(e) {
     if (e <= 1) {
       removeFromCart(id);
+      return;
     }
     setQ(e.target.value);
     changeItemQuantity(id, e.target.value);
@@ -33,6 +34,7 @@ const CartItem = ({
   function quanityDecrease() {
     if (q <= 1) {
       removeFromCart(id);
+      return;
     }
     let newQ = q - 1;
     let newP = newQ * price;
