@@ -1,6 +1,6 @@
-import kiki from '../assets/bedroom/kiki.jpg';
-import mentor from '../assets/bedroom/mentor.jpg';
-import virtual from '../assets/bedroom/virtual.jpg';
+import kiki from '../Assets/bedroom/kiki.jpg';
+import mentor from '../Assets/bedroom/mentor.jpg';
+import virtual from '../Assets/bedroom/virtual.jpg';
 
 const bedroomProducts = [
   {

@@ -1,6 +1,6 @@
-import materia from '../assets/dining/materia.jpg';
-import ondeo from '../assets/dining/ondeo.jpg';
-import steedy from '../assets/dining/steedy.jpg';
+import materia from '../Assets/dining/materia.jpg';
+import ondeo from '../Assets/dining/ondeo.jpg';
+import steedy from '../Assets/dining/steedy.jpg';
 
 const diningProducts = [
   {

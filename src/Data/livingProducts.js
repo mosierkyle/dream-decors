@@ -1,8 +1,8 @@
-import avante from '../assets/living/avante.jpg';
-import driftwood from '../assets/living/driftwood.jpg';
-import fashio from '../assets/living/fashio.jpg';
-import lintel from '../assets/living/lintel.jpg';
-import viva from '../assets/living/viva.jpg';
+import avante from '../Assets/living/avante.jpg';
+import driftwood from '../Assets/living/driftwood.jpg';
+import fashio from '../Assets/living/fashio.jpg';
+import lintel from '../Assets/living/lintel.jpg';
+import viva from '../Assets/living/viva.jpg';
 
 const livingProducts = [
   {
