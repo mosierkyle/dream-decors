@@ -13,7 +13,6 @@ const Cart = ({
   const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
-    console.log('this went');
     const getCartTotal = (cartParam) => {
       let sum = 0;
       cartParam.forEach((item) => {
@@ -27,7 +26,6 @@ const Cart = ({
 
   const onCartClick = () => {
     showCart ? setShowCart(false) : setShowCart(true);
-    console.log(cart);
     return;
   };
 

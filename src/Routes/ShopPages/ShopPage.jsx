@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import allProducts from '../../Data/allProducts';
 import Card from '../../Components/Card';
+import { Link } from 'react-router-dom';
 
 const getData = () => {
   const [data, setData] = useState(null);
@@ -38,6 +39,15 @@ const ShopPage = () => {
 
   return (
     <div className="shop-content">
+      <div className="bread-crumbs">
+        <Link className="bread-crumb-text" to={'/'}>
+          Home
+        </Link>{' '}
+        &gt;{' '}
+        <Link className="bread-crumb-text" to={'/shop'}>
+          Products
+        </Link>{' '}
+      </div>
       <p className="shop-heading">SHOP ALL FURNITURE</p>
       {loading && <div>A moment please...</div>}
       {error && (

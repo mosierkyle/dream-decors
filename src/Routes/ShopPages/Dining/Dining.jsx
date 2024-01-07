@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import diningProducts from '../../../Data/diningProducts';
 import Card from '../../../Components/Card';
+import { Link } from 'react-router-dom';
 
 const getData = () => {
   const [data, setData] = useState(null);
@@ -17,7 +18,6 @@ const getData = () => {
             `This is an HTTP error: The status is ${response.status}`
           );
         }
-        console.log(response);
         setData(response);
         setError(null);
       } catch (error) {
@@ -39,6 +39,19 @@ const Dining = () => {
 
   return (
     <div className="shop-content">
+      <div className="bread-crumbs">
+        <Link className="bread-crumb-text" to={'/'}>
+          Home
+        </Link>{' '}
+        &gt;{' '}
+        <Link className="bread-crumb-text" to={'/shop'}>
+          Products
+        </Link>{' '}
+        &gt;{' '}
+        <Link className="bread-crumb-text" to={'dining'}>
+          Dining
+        </Link>
+      </div>
       <p className="shop-heading">DINING ROOM FURNITURE</p>
       {loading && <div>A moment please...</div>}
       {error && (

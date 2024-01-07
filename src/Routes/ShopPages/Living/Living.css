@@ -8,6 +8,7 @@
   height: 100vh;
   width: 100vw;
   overflow: scroll;
+  position: relative;
 }
 
 .shop-heading {
@@ -25,4 +26,20 @@
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.bread-crumbs {
+  position: absolute;
+  top: 10px;
+  left: 24px;
+  font-size: 15px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+}
+
+.bread-crumb-text {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
 }

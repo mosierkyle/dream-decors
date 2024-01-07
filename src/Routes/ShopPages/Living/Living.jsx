@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import livingProducts from '../../../Data/livingProducts';
 import Card from '../../../Components/Card';
 import './Living.css';
+import { Link } from 'react-router-dom';
 
 const getData = () => {
   const [data, setData] = useState(null);
@@ -39,6 +40,19 @@ const Living = () => {
 
   return (
     <div className="shop-content">
+      <div className="bread-crumbs">
+        <Link className="bread-crumb-text" to={'/'}>
+          Home
+        </Link>{' '}
+        &gt;{' '}
+        <Link className="bread-crumb-text" to={'/shop'}>
+          Products
+        </Link>{' '}
+        &gt;{' '}
+        <Link className="bread-crumb-text" to={'Living'}>
+          Living
+        </Link>
+      </div>
       <p className="shop-heading">LIVING ROOM FURNITURE</p>
       {loading && <div>A moment please...</div>}
       {error && (
