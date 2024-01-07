@@ -86,7 +86,14 @@ const Cart = ({
             <button onClick={onCartClick} className="cart-continue-btn">
               CONTINUE SHOPPING
             </button>
-            <button className="cart-checkout-btn">CHECKOUT NOW</button>
+            <button className="cart-checkout-btn">
+              <a
+                className="cart-checkout-words"
+                href="https://github.com/mosierkyle"
+              >
+                CHECKOUT NOW
+              </a>
+            </button>
           </div>
         </div>
       </div>

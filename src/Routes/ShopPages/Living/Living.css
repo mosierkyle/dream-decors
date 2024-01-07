@@ -31,11 +31,16 @@
 .bread-crumbs {
   position: absolute;
   top: 10px;
-  left: 24px;
+  left: 19px;
   font-size: 15px;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.8);
   font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: rgb(255, 255, 255);
 }
 
 .bread-crumb-text {
