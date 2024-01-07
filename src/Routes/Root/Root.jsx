@@ -79,7 +79,6 @@ const Root = ({ cart, addToCart, removeFromCart, changeItemQuantity }) => {
       <div className="page">
         <Outlet />
       </div>
-      <div className="footer">This is the footer Dream Decor</div>
     </div>
   );
 };
