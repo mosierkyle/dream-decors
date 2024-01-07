@@ -4,15 +4,16 @@ import Card from '../../../Components/Card';
 import './Living.css';
 import { Link } from 'react-router-dom';
 
-const getData = () => {
-  const [data, setData] = useState(null);
+const Living = () => {
+  const [sort, setSort] = useState('select-one');
+  const [data, setData] = useState([]);
+  const [sortedData, setSortedData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getResponse = async () => {
       try {
-        //furniture
         let response = livingProducts;
         if (!response) {
           throw new Error(
@@ -20,10 +21,10 @@ const getData = () => {
           );
         }
         setData(response);
+        setSortedData(response);
         setError(null);
       } catch (error) {
         setError(error);
-        setData(null);
       } finally {
         setLoading(false);
       }
@@ -31,14 +32,6 @@ const getData = () => {
 
     getResponse();
   }, []);
-
-  return { data, error, loading };
-};
-
-const Living = () => {
-  const { data, error, loading } = getData();
-  const [sort, setSort] = useState('select-one');
-  const [displayData, setDisplayData] = useState(data);
 
   useEffect(() => {
     const sortByName = (data) => {
@@ -53,13 +46,13 @@ const Living = () => {
     };
 
     if (sort == 'name') {
-      setDisplayData(sortByName(data));
+      setSortedData(sortByName(data));
     } else if (sort == 'price') {
-      setDisplayData(sortByPrice(data));
+      setSortedData(sortByPrice(data));
     } else {
-      setDisplayData(data);
+      setSortedData(data);
     }
-  }, [sort]);
+  }, [sort, data]);
 
   const handleSort = (e) => {
     const newSort = e.target.value;
@@ -69,11 +62,24 @@ const Living = () => {
   return (
     <div className="shop-content">
       <div className="sort-feature">
-        <select onChange={handleSort} value={sort} id="dropdown">
-          <option value="select-one">Sort By:</option>
-          <option value="recommended">Recommended</option>
-          <option value="name">A-Z</option>
-          <option value="price">Low-High</option>
+        <select
+          className="sort-dropdown"
+          onChange={handleSort}
+          value={sort}
+          id="dropdown"
+        >
+          <option className="sort-option" value="select-one">
+            Sort By:
+          </option>
+          <option className="sort-option" value="recommended">
+            Recommended
+          </option>
+          <option className="sort-option" value="name">
+            A-Z
+          </option>
+          <option className="sort-option" value="price">
+            Low-High
+          </option>
         </select>
       </div>
       <div className="bread-crumbs">
@@ -95,8 +101,8 @@ const Living = () => {
         <div>{`There is a problem fetching the dinning data - ${error}`}</div>
       )}
       <div className="shop-cards">
-        {data &&
-          data.map(({ name, id, image, price }) => {
+        {sortedData &&
+          sortedData.map(({ name, id, image, price }) => {
             return (
               <Card
                 key={id}
