@@ -37,9 +37,45 @@ const getData = () => {
 
 const Living = () => {
   const { data, error, loading } = getData();
+  const [sort, setSort] = useState('select-one');
+  const [displayData, setDisplayData] = useState(data);
+
+  useEffect(() => {
+    const sortByName = (data) => {
+      const sortedData = [...data];
+      sortedData.sort((a, b) => a.id - b.id);
+      return sortedData;
+    };
+    const sortByPrice = (data) => {
+      const sortedData = [...data];
+      sortedData.sort((a, b) => a.price - b.price);
+      return sortedData;
+    };
+
+    if (sort == 'name') {
+      setDisplayData(sortByName(data));
+    } else if (sort == 'price') {
+      setDisplayData(sortByPrice(data));
+    } else {
+      setDisplayData(data);
+    }
+  }, [sort]);
+
+  const handleSort = (e) => {
+    const newSort = e.target.value;
+    setSort(newSort);
+  };
 
   return (
     <div className="shop-content">
+      <div className="sort-feature">
+        <select onChange={handleSort} value={sort} id="dropdown">
+          <option value="select-one">Sort By:</option>
+          <option value="recommended">Recommended</option>
+          <option value="name">A-Z</option>
+          <option value="price">Low-High</option>
+        </select>
+      </div>
       <div className="bread-crumbs">
         <Link className="bread-crumb-text" to={'/'}>
           Home
