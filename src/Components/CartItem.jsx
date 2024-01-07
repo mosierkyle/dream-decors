@@ -23,20 +23,15 @@ const CartItem = ({
       return;
     }
     let newP = e.target.value * price;
-    // let newCartTotal = cartTotal + newP;
     setP(newP);
     setQ(e.target.value);
-    setCartTotal(newCartTotal);
-    // changeItemQuantity(id, e.target.value);
   }
 
   function quanityIncrease() {
     let newQ = q + 1;
     let newP = newQ * price;
-    // let newCartTotal = cartTotal + newP;
     setP(newP);
     setQ(newQ);
-    // setCartTotal(newCartTotal);
     changeItemQuantity(id, newQ);
   }
 
@@ -44,16 +39,11 @@ const CartItem = ({
     let newQ = q - 1;
     let newP = newQ * price;
     if (q <= 1) {
-      //   let newCartTotal = cartTotal - newP;
-      //   console.log(newCartTotal);
-      //   setCartTotal(newCartTotal);
       removeFromCart(id);
       return;
     }
-    // let newCartTotal = cartTotal - newP;
     setP(newP);
     setQ(newQ);
-    // setCartTotal(newCartTotal);
     changeItemQuantity(id, newQ);
   }
   return (
