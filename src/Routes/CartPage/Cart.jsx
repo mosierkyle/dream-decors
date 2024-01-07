@@ -1,15 +1,30 @@
 import { Helmet } from 'react-helmet';
 import './Cart.css';
 import CartItem from '../../Components/CartItem';
+import { useEffect, useState } from 'react';
 
 const Cart = ({
   setShowCart,
-  addToCart,
   cart,
   removeFromCart,
   showCart,
   changeItemQuantity,
 }) => {
+  const [cartTotal, setCartTotal] = useState(0);
+
+  useEffect(() => {
+    console.log('this went');
+    const getCartTotal = (cartParam) => {
+      let sum = 0;
+      cartParam.forEach((item) => {
+        let itemPrice = item.quantity * item.price;
+        sum += itemPrice;
+      });
+      return sum;
+    };
+    setCartTotal(getCartTotal(cart));
+  }, [cart]);
+
   const onCartClick = () => {
     showCart ? setShowCart(false) : setShowCart(true);
     console.log(cart);
@@ -47,6 +62,8 @@ const Cart = ({
                       removeFromCart={removeFromCart}
                       id={item.id}
                       changeItemQuantity={changeItemQuantity}
+                      setCartTotal={setCartTotal}
+                      cartTotal={cartTotal}
                     ></CartItem>
                   </div>
                 );
@@ -55,7 +72,10 @@ const Cart = ({
           <div className="cart-checkout">
             <div className="cart-subtotal">
               <p>Subtotal</p>
-              <p>$</p>
+              <p>
+                ${cartTotal}
+                {cart.length !== 0 ? '.99' : '.00'}
+              </p>
             </div>
             <button onClick={onCartClick} className="cart-continue-btn">
               CONTINUE SHOPPING

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import './CartItem.css';
 
 const CartItem = ({
@@ -10,6 +11,8 @@ const CartItem = ({
   removeFromCart,
   changeItemQuantity,
   id,
+  setCartTotal,
+  cartTotal,
 }) => {
   const [q, setQ] = useState(quantity);
   const [p, setP] = useState(quantity * price);
@@ -19,31 +22,48 @@ const CartItem = ({
       removeFromCart(id);
       return;
     }
+    let newP = e.target.value * price;
+    // let newCartTotal = cartTotal + newP;
+    setP(newP);
     setQ(e.target.value);
-    changeItemQuantity(id, e.target.value);
+    setCartTotal(newCartTotal);
+    // changeItemQuantity(id, e.target.value);
   }
 
   function quanityIncrease() {
     let newQ = q + 1;
     let newP = newQ * price;
+    // let newCartTotal = cartTotal + newP;
     setP(newP);
     setQ(newQ);
+    // setCartTotal(newCartTotal);
     changeItemQuantity(id, newQ);
   }
 
   function quanityDecrease() {
+    let newQ = q - 1;
+    let newP = newQ * price;
     if (q <= 1) {
+      //   let newCartTotal = cartTotal - newP;
+      //   console.log(newCartTotal);
+      //   setCartTotal(newCartTotal);
       removeFromCart(id);
       return;
     }
-    let newQ = q - 1;
-    let newP = newQ * price;
+    // let newCartTotal = cartTotal - newP;
     setP(newP);
     setQ(newQ);
+    // setCartTotal(newCartTotal);
     changeItemQuantity(id, newQ);
   }
   return (
     <>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+      </Helmet>
       <div className="cart-item-img-div">
         <img className="cart-item-img" src={image} alt="item-image" />
       </div>
@@ -68,6 +88,10 @@ const CartItem = ({
       <div className="cart-item-price">
         <p className="cart-item-total">${p}.99</p>
       </div>
+      <i
+        onClick={() => removeFromCart(id)}
+        className="fa-solid fa-trash cart-item-delete-btn"
+      ></i>
     </>
   );
 };

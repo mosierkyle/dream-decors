@@ -51,7 +51,6 @@ const Root = ({ cart, addToCart, removeFromCart, changeItemQuantity }) => {
               showCart={showCart}
               setShowCart={setShowCart}
               removeFromCart={removeFromCart}
-              addToCart={addToCart}
               changeItemQuantity={changeItemQuantity}
             ></Cart>
           </li>

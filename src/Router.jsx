@@ -31,7 +31,7 @@ const Router = () => {
   };
 
   const removeFromCart = (id) => {
-    let removeItem = getData(id);
+    let removeItem = cart.find((item) => item.id === id);
     const index = cart.indexOf(removeItem);
     setCart((prevCart) => {
       const newCart = [...prevCart];
