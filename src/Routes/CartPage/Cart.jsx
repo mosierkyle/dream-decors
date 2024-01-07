@@ -49,6 +49,14 @@ const Cart = ({
             <i onClick={onCartClick} className="fa-solid fa-x cart-x"></i>
           </div>
           <div className="cart-items">
+            {cart.length === 0 && (
+              <div className="empty-cart-div">
+                <p className="empty-cart">
+                  Your cart is empty{' '}
+                  <i className="fa-regular fa-face-smile"></i>
+                </p>
+              </div>
+            )}
             {cart &&
               cart.map((item) => {
                 return (
