@@ -63,7 +63,11 @@ const CartItem = ({
         <p className="cart-item-name">{name}</p>
         <p className="cart-item-category">Category: {category}</p>
         <div className="cart-item-quantity">
-          <button className="cart-q-btn" onClick={quanityDecrease}>
+          <button
+            data-testid="item-subtract"
+            className="cart-q-btn"
+            onClick={quanityDecrease}
+          >
             -
           </button>
           <input
@@ -71,18 +75,26 @@ const CartItem = ({
             type="text"
             value={q}
             onChange={quantityChange}
+            data-testid="item-quantity"
           />
-          <button className="cart-q-btn" onClick={quanityIncrease}>
+          <button
+            data-testid="item-add"
+            className="cart-q-btn"
+            onClick={quanityIncrease}
+          >
             +
           </button>
         </div>
       </div>
       <div className="cart-item-price">
-        <p className="cart-item-total">${p}.99</p>
+        <p data-testid="item-price" className="cart-item-total">
+          ${p}.99
+        </p>
       </div>
       <i
         onClick={() => removeFromCart(id)}
         className="fa-solid fa-trash cart-item-delete-btn"
+        data-testid="item-trash"
       ></i>
     </>
   );

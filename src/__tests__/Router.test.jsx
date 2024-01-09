@@ -73,3 +73,101 @@ describe('Nav Links work Correctly', () => {
     expect(screen.getByText('Subtotal')).toBeInTheDocument();
   });
 });
+
+describe('Search feature functions correctly', () => {
+  it('Search comes back with results', async () => {
+    render(<Router />);
+
+    const search = screen.getByTestId('search');
+
+    await userEvent.click(search);
+
+    await userEvent.type(screen.getByPlaceholderText('Search'), 'AVANTE');
+
+    expect(screen.getByText('AVANTE series')).toBeInTheDocument();
+  });
+});
+
+describe('Cart Functions correctly', () => {
+  it('item gets added to cart correctly', async () => {
+    render(<Router />);
+
+    await userEvent.click(screen.getByText('LIVING'));
+
+    const items = screen.getAllByTestId('item-card');
+
+    await userEvent.click(items[0]);
+
+    await userEvent.click(screen.getByTestId('add'));
+
+    await userEvent.click(screen.getByText('ADD TO CART'));
+
+    await userEvent.click(screen.getByTestId('cart'));
+
+    expect(screen.getByTestId('item-price')).toHaveTextContent(
+      '$',
+      '14998',
+      '.99'
+    );
+    expect(screen.getByTestId('item-quantity')).toHaveDisplayValue(2);
+    expect(screen.getByTestId('cart-length')).toHaveTextContent('(', '1', ')');
+    expect(screen.getByTestId('subtotal')).toHaveTextContent(
+      '$',
+      '14998',
+      '.99'
+    );
+  });
+
+  it('item quantity addition changes correctly', async () => {
+    render(<Router />);
+
+    await userEvent.click(screen.getByText('LIVING'));
+    const items = screen.getAllByTestId('item-card');
+    await userEvent.click(items[0]);
+    await userEvent.click(screen.getByTestId('add'));
+    await userEvent.click(screen.getByText('ADD TO CART'));
+    await userEvent.click(screen.getByTestId('cart'));
+    await userEvent.click(screen.getByTestId('item-add'));
+
+    expect(screen.getByTestId('item-quantity')).toHaveDisplayValue(3);
+  });
+
+  it('item quantity subtration, changes correctly', async () => {
+    render(<Router />);
+
+    await userEvent.click(screen.getByText('LIVING'));
+    const items = screen.getAllByTestId('item-card');
+    await userEvent.click(items[0]);
+    await userEvent.click(screen.getByTestId('add'));
+    await userEvent.click(screen.getByText('ADD TO CART'));
+    await userEvent.click(screen.getByTestId('cart'));
+    await userEvent.click(screen.getByTestId('item-subtract'));
+    expect(screen.getByTestId('item-quantity')).toHaveDisplayValue(1);
+  });
+
+  it('item quantity goes below zero', async () => {
+    render(<Router />);
+
+    await userEvent.click(screen.getByText('LIVING'));
+    const items = screen.getAllByTestId('item-card');
+    await userEvent.click(items[0]);
+    await userEvent.click(screen.getByText('ADD TO CART'));
+    await userEvent.click(screen.getByTestId('cart'));
+    await userEvent.click(screen.getByTestId('item-subtract'));
+    expect(screen.getByText('Your cart is empty')).toBeInTheDocument();
+  });
+
+  it('Trash button works', async () => {
+    render(<Router />);
+
+    await userEvent.click(screen.getByText('LIVING'));
+    const items = screen.getAllByTestId('item-card');
+    await userEvent.click(items[0]);
+    await userEvent.click(screen.getByTestId('add'));
+    await userEvent.click(screen.getByText('ADD TO CART'));
+    await userEvent.click(screen.getByTestId('cart'));
+    await userEvent.click(screen.getByTestId('item-trash'));
+
+    expect(screen.getByText('Your cart is empty')).toBeInTheDocument();
+  });
+});

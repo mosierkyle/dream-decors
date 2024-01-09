@@ -50,7 +50,11 @@ const Item = ({ name, image, price, category, addToCart, id }) => {
               value={quantity}
               onChange={quantityChange}
             />
-            <button className="q-btn" onClick={quanityIncrease}>
+            <button
+              data-testid="add"
+              className="q-btn"
+              onClick={quanityIncrease}
+            >
               +
             </button>
           </div>

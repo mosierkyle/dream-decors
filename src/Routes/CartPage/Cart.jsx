@@ -36,9 +36,16 @@ const Cart = ({
       <div className="cart-content">
         <div className="cart-header">
           <h3 className="cart-title">
-            CART <span className="cart-count">({cart.length})</span>
+            CART{' '}
+            <span data-testid="cart-length" className="cart-count">
+              ({cart.length})
+            </span>
           </h3>
-          <i onClick={handleShowCart} className="fa-solid fa-x cart-x"></i>
+          <i
+            onClick={handleShowCart}
+            data-testid="cart-exit"
+            className="fa-solid fa-x cart-x"
+          ></i>
         </div>
         <div className="cart-items">
           {cart.length === 0 && (
@@ -71,12 +78,16 @@ const Cart = ({
         <div className="cart-checkout">
           <div className="cart-subtotal">
             <p>Subtotal</p>
-            <p>
+            <p data-testid="subtotal">
               ${cartTotal}
               {cart.length !== 0 ? '.99' : '.00'}
             </p>
           </div>
-          <button onClick={handleShowCart} className="cart-continue-btn">
+          <button
+            data-testid="continue-shopping"
+            onClick={handleShowCart}
+            className="cart-continue-btn"
+          >
             CONTINUE SHOPPING
           </button>
           <button className="cart-checkout-btn">
