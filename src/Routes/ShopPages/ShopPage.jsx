@@ -90,7 +90,9 @@ const ShopPage = () => {
           Products
         </Link>{' '}
       </div>
-      <p className="shop-heading">SHOP ALL FURNITURE</p>
+      <p className="shop-heading" data-testid="shop-page-heading">
+        SHOP ALL FURNITURE
+      </p>
       {loading && <div>A moment please...</div>}
       {error && (
         <div>{`There is a problem fetching the furniture data - ${error}`}</div>

@@ -17,6 +17,10 @@ const Root = ({ cart, addToCart, removeFromCart, changeItemQuantity }) => {
     setSearch('');
   };
 
+  const handleShowCart = () => {
+    showCart ? setShowCart(false) : setShowCart(true);
+  };
+
   return (
     <div className="content">
       <Helmet>
@@ -27,28 +31,29 @@ const Root = ({ cart, addToCart, removeFromCart, changeItemQuantity }) => {
       </Helmet>
       <div className="header">
         <div className="logo">
-          <Link className="link" to="/">
+          <Link data-testid="logo" className="link" to="/">
             DREAM DECORS
           </Link>
         </div>
         <ul className="nav-links">
           <li>
-            <Link className="link" to="living">
+            <Link data-testid="living" className="link" to="living">
               LIVING
             </Link>
           </li>
           <li>
-            <Link className="link" to="dining">
+            <Link data-testid="dining" className="link" to="dining">
               DINING
             </Link>
           </li>
           <li>
-            <Link className="link" to="bedroom">
+            <Link data-testid="bedroom" className="link" to="bedroom">
               BEDROOM
             </Link>
           </li>
           <li>
             <i
+              data-testid="search"
               className="fa-solid fa-magnifying-glass search-icon"
               onClick={handleShowSearch}
             ></i>
@@ -63,16 +68,23 @@ const Root = ({ cart, addToCart, removeFromCart, changeItemQuantity }) => {
             )}
           </li>
           <li>
-            {showCart ? (
-              <i className="fa-solid fa-cart-shopping nav-cart"></i>
-            ) : null}
-            <Cart
-              cart={cart}
-              showCart={showCart}
-              setShowCart={setShowCart}
-              removeFromCart={removeFromCart}
-              changeItemQuantity={changeItemQuantity}
-            ></Cart>
+            {/* {showCart ? ( */}
+            <i
+              data-testid="cart"
+              className="fa-solid fa-cart-shopping nav-cart"
+              onClick={handleShowCart}
+            ></i>
+            {/* ) : null} */}
+            {showCart && (
+              <Cart
+                cart={cart}
+                showCart={showCart}
+                setShowCart={setShowCart}
+                removeFromCart={removeFromCart}
+                changeItemQuantity={changeItemQuantity}
+                handleShowCart={handleShowCart}
+              ></Cart>
+            )}
           </li>
         </ul>
       </div>
