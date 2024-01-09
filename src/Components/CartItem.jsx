@@ -22,9 +22,11 @@ const CartItem = ({
       removeFromCart(id);
       return;
     }
+    let newQ = e.target.value;
     let newP = e.target.value * price;
     setP(newP);
     setQ(e.target.value);
+    changeItemQuantity(id, newQ);
   }
 
   function quanityIncrease() {
