@@ -66,6 +66,7 @@ const Dining = () => {
           onChange={handleSort}
           value={sort}
           id="dropdown"
+          data-testid="sort"
         >
           <option className="sort-option" value="select-one">
             Sort By:
@@ -81,7 +82,7 @@ const Dining = () => {
           </option>
         </select>
       </div>
-      <div className="bread-crumbs">
+      <div className="bread-crumbs" data-testid="bread-crumb">
         <Link className="bread-crumb-text" to={'/'}>
           Home
         </Link>{' '}
