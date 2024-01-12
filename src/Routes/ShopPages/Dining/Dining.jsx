@@ -91,7 +91,7 @@ const Dining = () => {
           Products
         </Link>{' '}
         &gt;{' '}
-        <Link className="bread-crumb-text" to={'dining'}>
+        <Link className="bread-crumb-text" to={'/dining'}>
           Dining
         </Link>
       </div>

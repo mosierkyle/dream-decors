@@ -92,7 +92,7 @@ const Living = () => {
           Products
         </Link>{' '}
         &gt;{' '}
-        <Link className="bread-crumb-text" to={'Living'}>
+        <Link className="bread-crumb-text" to={'/living'}>
           Living
         </Link>
       </div>

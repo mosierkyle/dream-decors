@@ -91,7 +91,7 @@ const Bedroom = () => {
           Products
         </Link>{' '}
         &gt;{' '}
-        <Link className="bread-crumb-text" to={'bedroom'}>
+        <Link className="bread-crumb-text" to={'/bedroom'}>
           Bedroom
         </Link>
       </div>

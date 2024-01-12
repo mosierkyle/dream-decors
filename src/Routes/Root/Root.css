@@ -83,3 +83,15 @@
 .search-icon {
   cursor: pointer;
 }
+
+@media screen and (max-width: 850px) {
+  /* Your styles for screens smaller than 800px go here */
+  .logo {
+    display: none;
+  }
+
+  .header {
+    justify-content: center;
+  }
+  /* Add more styles as needed */
+}
