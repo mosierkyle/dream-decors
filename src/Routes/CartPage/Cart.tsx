@@ -1,19 +1,36 @@
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import './Cart.css';
 import CartItem from '../../Components/CartItem';
-import { useEffect, useState } from 'react';
 
-const Cart = ({
+interface CartProps {
+  handleShowCart: () => void;
+  cart: CartItem[];
+  removeFromCart: (id: string) => void;
+  showCart: boolean;
+  changeItemQuantity: (id: string, quantity: number) => void;
+}
+
+interface CartItem {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+  category: string;
+  quantity: number;
+}
+
+const Cart: React.FC<CartProps> = ({
   handleShowCart,
   cart,
   removeFromCart,
   showCart,
   changeItemQuantity,
 }) => {
-  const [cartTotal, setCartTotal] = useState(0);
+  const [cartTotal, setCartTotal] = useState<number>(0);
 
   useEffect(() => {
-    const getCartTotal = (cartParam) => {
+    const getCartTotal = (cartParam: CartItem[]) => {
       let sum = 0;
       cartParam.forEach((item) => {
         let itemPrice = item.quantity * item.price;
@@ -68,8 +85,6 @@ const Cart = ({
                     removeFromCart={removeFromCart}
                     id={item.id}
                     changeItemQuantity={changeItemQuantity}
-                    setCartTotal={setCartTotal}
-                    cartTotal={cartTotal}
                   ></CartItem>
                 </div>
               );

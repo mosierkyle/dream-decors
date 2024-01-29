@@ -5,7 +5,7 @@ import allProducts from '../Data/allProducts';
 import { Link } from 'react-router-dom';
 
 interface SearchProps {
-  searchResults: any[]; // You may want to replace `any[]` with a specific type that represents your search results.
+  searchResults: any[];
   setSearchResults: React.Dispatch<React.SetStateAction<any[]>>;
   search: string;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
